@@ -2,16 +2,12 @@
 #
 # Uses qacct to make user-friendly job history output. 
 #
-#
-#
 # qacct -j -d 1 -o hover
 #  jobnum  jobname  pe_taskid  start_time  end_time  wallclock  slots  maxvmem  exit_status
 
 import argparse
-# import logging
 import os
 import sys
-
 
 gitpath=os.path.expanduser("~/git/sgeutils")
 sys.path.append(gitpath)
