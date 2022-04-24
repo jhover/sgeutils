@@ -1,0 +1,4 @@
+#!/bin/bash
+#  gpustats per Heywood
+tail -n 5 /grid/it/data/elzar/gpustat/bamgpu0*.log
+
