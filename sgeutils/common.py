@@ -7,6 +7,7 @@ import subprocess
 def get_username():
     return pwd.getpwuid( os.getuid() )[ 0 ]
 
+
 def parse_output(lines):
     lod = []
     current = None
@@ -46,7 +47,10 @@ def parse_output(lines):
 
 
 def get_history(days=1, user=get_username()):
-    cmd = f"qacct -j -d {days} -o {user}"
+    cmd = f"qacct -j -o {user}"
+    if days is not None:
+        cmd += f" -d {days} "
+        cmd += f" -o {user} "
     result = subprocess.check_output( cmd, shell=True, text=True )
     lines = result.split('\n')
     joblist = parse_output(lines)
