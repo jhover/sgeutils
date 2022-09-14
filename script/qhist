@@ -46,7 +46,6 @@ if __name__ == '__main__':
                         help='max number of entries to display (default all)')
 
     parser.add_argument('-u', '--user',
-                        default=0,
                         default=None, 
                         help='username to get info for [current user]')
 
