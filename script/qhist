@@ -45,6 +45,11 @@ if __name__ == '__main__':
                         default=0,
                         help='max number of entries to display (default all)')
 
+    parser.add_argument('-u', '--user',
+                        default=0,
+                        default=None, 
+                        help='username to get info for [current user]')
+
     parser.add_argument('-m', '--memorystat', default=['maxvmem'], nargs=1,
                         choices=['maxvmem', 'maxrss', 'both'],
                         help='The memory runtime statistics to be displayed. '
@@ -54,7 +59,7 @@ if __name__ == '__main__':
 
     args= parser.parse_args()
 
-    joblist = get_history(days=args.days)
+    joblist = get_history(days=args.days, user=args.user)
     out = printjoblist(joblist, args.header, args.nlines, args.memorystat)
     try:
         sys.stdout.write(out)

@@ -46,7 +46,9 @@ def parse_output(lines):
     return lod
 
 
-def get_history(days=1, user=get_username()):
+def get_history(days=1, user=None):
+    if user is None:
+        user=get_username()
     cmd = f"qacct -j -o {user}"
     if days is not None:
         cmd += f" -d {days} "
